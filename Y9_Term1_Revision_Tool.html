@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Year 9 Term 1 — Working scientifically, enzymes and sampling</title>
+<style>
+:root{
+  --paper:#F6F4FA;
+  --card:#FFFFFF;
+  --ink:#1E1B2E;
+  --quiet:#5C5670;
+  --rule:#D6D0E4;
+  --purple:#6B3FA0;
+  --purple-soft:#EDE6F7;
+  --green:#1F6F45;
+  --green-soft:#E1F1E8;
+  --pink:#C2255C;
+  --pink-soft:#FBE4EE;
+  --amber:#A86400;
+  --amber-soft:#FBEED6;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#16141F; --card:#201D2C; --ink:#EDEAF5; --quiet:#ABA3C0; --rule:#3A3450;
+    --purple:#B48BE8; --purple-soft:#2C2440; --green:#6FCB97; --green-soft:#1B3328;
+    --pink:#F090B6; --pink-soft:#3A1F2C; --amber:#E0B060; --amber-soft:#332715;
+  }
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px);height:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.55;
+  -webkit-text-size-adjust:100%;
+}
+h1,h2,h3,h4{line-height:1.2;margin:0}
+p{margin:0 0 .7em}
+a{color:var(--purple)}
+button{font:inherit;color:inherit}
+
+/* ---------- masthead ---------- */
+.masthead{
+  border-bottom:2px solid var(--ink);background:var(--card);
+  padding:18px 20px 14px;
+}
+.masthead .wrap{max-width:1000px;margin:0 auto}
+.school{font-size:.72rem;letter-spacing:.06em;color:var(--quiet);margin-bottom:6px}
+.masthead h1{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.1rem);font-weight:700}
+.masthead .sub{font-family:var(--serif);font-size:1rem;color:var(--quiet);margin-top:4px}
+.keyline{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:.8rem}
+.keyline span{display:inline-flex;align-items:center;gap:6px;color:var(--quiet)}
+.dot{width:11px;height:11px;border-radius:50%;flex:none}
+.dot.g{background:var(--green)} .dot.p{background:var(--pink)} .dot.v{background:var(--purple)}
+
+/* ---------- tabs ---------- */
+nav.tabs{
+  position:sticky;top:0;z-index:30;background:var(--card);
+  border-bottom:1px solid var(--rule);
+  padding-top:env(safe-area-inset-top,0px);
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+}
+nav.tabs .wrap{max-width:1000px;margin:0 auto;display:flex;gap:2px;padding:0 12px;min-width:max-content}
+nav.tabs button{
+  background:none;border:0;border-bottom:3px solid transparent;
+  padding:13px 14px;cursor:pointer;color:var(--quiet);white-space:nowrap;font-size:.92rem;
+}
+nav.tabs button[aria-selected="true"]{color:var(--purple);border-bottom-color:var(--purple);font-weight:600}
+nav.tabs button:hover{color:var(--ink)}
+nav.tabs button:focus-visible{outline:2px solid var(--purple);outline-offset:-4px}
+
+main{max-width:1000px;margin:0 auto;padding:24px 20px 80px}
+.panel[hidden]{display:none}
+.intro{font-family:var(--serif);font-size:1.02rem;max-width:62ch;margin-bottom:22px}
+.intro strong{color:var(--pink)}
+
+/* ---------- generic card ---------- */
+.card{background:var(--card);border:1px solid var(--rule);border-radius:4px;margin-bottom:18px}
+.card-head{padding:14px 18px;border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.code{font-family:var(--serif);font-weight:700;font-size:1.15rem}
+.code small{font-weight:400;font-size:.8rem;color:var(--quiet);display:block;margin-top:2px;font-family:var(--sans)}
+
+.weekbar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.weekbar button{
+  background:var(--card);border:1px solid var(--rule);border-radius:999px;
+  padding:7px 16px;cursor:pointer;font-size:.88rem;
+}
+.weekbar button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.weekbar button:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+
+/* ---------- ladder ---------- */
+.ladder{display:grid;grid-template-columns:22px 1fr;column-gap:16px}
+.rail{position:relative;margin:18px 0}
+.rail::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;background:var(--rule)}
+.rung{position:relative;padding:14px 18px 14px 0;border-bottom:1px solid var(--rule)}
+.rung:last-of-type{border-bottom:0}
+.rung h4{font-size:.78rem;letter-spacing:.04em;color:var(--purple);margin-bottom:6px;font-weight:700}
+.rung .body{font-family:var(--serif);font-size:.97rem}
+.rung .body em{color:var(--quiet)}
+.knob{
+  position:absolute;left:-38px;top:16px;width:22px;height:22px;border-radius:50%;
+  border:2px solid var(--rule);background:var(--card);cursor:pointer;padding:0;
+  display:grid;place-items:center;
+}
+.knob:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+.knob[aria-pressed="true"]{background:var(--green);border-color:var(--green)}
+.knob[aria-pressed="true"]::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+
+.meta-row{padding:13px 18px;border-top:1px solid var(--rule);font-size:.9rem}
+.meta-row .lbl{font-size:.74rem;letter-spacing:.04em;color:var(--quiet);margin-bottom:4px;font-weight:600}
+.vocab-chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{background:var(--purple-soft);color:var(--purple);border-radius:3px;padding:2px 8px;font-size:.82rem}
+.warn{background:var(--pink-soft)}
+.warn .lbl{color:var(--pink)}
+.next{background:var(--paper)}
+.next .body{font-family:var(--serif);font-style:italic;color:var(--quiet)}
+
+/* ---------- RAG ---------- */
+.rag{display:flex;gap:4px;align-items:center}
+.rag span.lbl{font-size:.75rem;color:var(--quiet);margin-right:4px}
+.rag button{
+  width:34px;height:30px;border:1px solid var(--rule);background:var(--card);
+  cursor:pointer;font-size:.82rem;font-weight:700;border-radius:3px;color:var(--quiet);
+}
+.rag button:focus-visible{outline:2px solid var(--purple);outline-offset:1px}
+.rag button[data-v="R"][aria-pressed="true"]{background:var(--pink);border-color:var(--pink);color:#fff}
+.rag button[data-v="A"][aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#fff}
+.rag button[data-v="G"][aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+
+/* ---------- tables ---------- */
+.scroller{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border:1px solid var(--rule);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--purple-soft);color:var(--purple);font-size:.8rem}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--paper) 55%,transparent)}
+
+/* ---------- vocabulary ---------- */
+.search{width:100%;max-width:420px;padding:10px 12px;border:1px solid var(--rule);border-radius:3px;background:var(--card);color:var(--ink);margin-bottom:16px}
+.search:focus-visible{outline:2px solid var(--purple);outline-offset:1px}
+.glossary{columns:2 280px;column-gap:26px}
+.term{break-inside:avoid;padding:9px 0;border-bottom:1px solid var(--rule)}
+.term dt{font-weight:700;color:var(--purple);font-size:.93rem}
+.term dd{margin:2px 0 0;font-family:var(--serif);font-size:.93rem;color:var(--ink)}
+.misc{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.misc>div{padding:11px 14px;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:.93rem}
+.misc .x{background:var(--pink-soft);border-right:1px solid var(--rule)}
+.misc .t{background:var(--green-soft)}
+@media(max-width:620px){.misc{grid-template-columns:1fr}.misc .x{border-right:0}}
+
+/* ---------- quiz ---------- */
+.q{padding:16px 18px;border-bottom:1px solid var(--rule)}
+.q:last-child{border-bottom:0}
+.q .stem{font-family:var(--serif);font-size:1rem;margin-bottom:10px}
+.q .stem b{font-family:var(--sans);font-size:.8rem;color:var(--quiet);margin-right:8px;font-weight:600}
+.opt{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--rule);
+  border-radius:3px;padding:10px 12px;margin-bottom:6px;cursor:pointer;font-size:.94rem}
+.opt:hover:not(:disabled){border-color:var(--purple)}
+.opt:focus-visible{outline:2px solid var(--purple);outline-offset:1px}
+.opt:disabled{cursor:default}
+.opt.correct{background:var(--green-soft);border-color:var(--green);font-weight:600}
+.opt.wrong{background:var(--pink-soft);border-color:var(--pink)}
+.fb{font-size:.87rem;margin-top:8px;padding:9px 12px;border-left:3px solid var(--purple);background:var(--purple-soft)}
+.score{padding:14px 18px;background:var(--paper);border-top:1px solid var(--rule);font-size:.93rem}
+
+/* ---------- exam ---------- */
+.marks{float:right;font-weight:700;color:var(--pink);font-size:.86rem}
+.qtext{font-family:var(--serif);font-size:1rem;margin-bottom:12px}
+.qtext .hint{display:block;font-style:italic;color:var(--quiet);font-size:.92rem;margin-top:6px}
+textarea,input[type=text]{
+  width:100%;font-family:var(--serif);font-size:.98rem;padding:10px 12px;
+  border:1px solid var(--rule);border-radius:3px;background:var(--card);
+  color:var(--purple);line-height:1.5;
+}
+textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--purple);outline-offset:1px}
+.fieldrow{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;margin-bottom:8px}
+@media(max-width:560px){.fieldrow{grid-template-columns:1fr;gap:4px}}
+.fieldrow label{font-size:.88rem;font-weight:600}
+.btn{
+  background:var(--purple);color:#fff;border:0;border-radius:3px;
+  padding:9px 18px;cursor:pointer;font-size:.9rem;font-weight:600;
+}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.btn.ghost{background:transparent;color:var(--purple);border:1px solid var(--rule)}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.mp{display:flex;gap:9px;padding:7px 0;border-bottom:1px solid var(--rule);font-size:.91rem;align-items:flex-start}
+.mp:last-child{border-bottom:0}
+.mp .tick{flex:none;width:19px;height:19px;border-radius:3px;display:grid;place-items:center;font-size:.78rem;font-weight:700;margin-top:1px}
+.mp.hit .tick{background:var(--green);color:#fff}
+.mp.miss .tick{background:var(--pink-soft);color:var(--pink);border:1px solid var(--pink)}
+.mp.miss{color:var(--quiet)}
+.result{margin-top:14px;padding:14px 16px;background:var(--paper);border:1px solid var(--rule);border-radius:3px}
+.result h5{margin:0 0 8px;font-size:.8rem;letter-spacing:.04em;color:var(--quiet)}
+.model{margin-top:12px;padding:12px 14px;background:var(--green-soft);border-left:3px solid var(--green);font-family:var(--serif);font-size:.95rem}
+.selfmark{margin-top:12px;display:flex;gap:9px;align-items:center;flex-wrap:wrap;font-size:.9rem}
+.selfmark input{width:64px;text-align:center;font-family:var(--sans);color:var(--ink)}
+
+/* ---------- progress ---------- */
+.bigstat{display:flex;gap:26px;flex-wrap:wrap;padding:18px}
+.stat .n{font-family:var(--serif);font-size:2.1rem;font-weight:700;line-height:1}
+.stat .l{font-size:.8rem;color:var(--quiet)}
+.todo{padding:0 18px 18px}
+.todo li{margin-bottom:9px;font-size:.94rem}
+.bar{height:7px;background:var(--rule);border-radius:4px;overflow:hidden;min-width:90px}
+.bar i{display:block;height:100%;background:var(--green)}
+.empty{padding:18px;color:var(--quiet);font-family:var(--serif)}
+footer{border-top:1px solid var(--rule);padding:18px 20px;font-size:.78rem;color:var(--quiet);text-align:center}
+@media print{
+  nav.tabs,.btn,.masthead .keyline{display:none}
+  .panel[hidden]{display:none}
+  body{background:#fff}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="school">Al Yasmina British Academy · Science</div>
+    <h1>Year 9 Term 1 — Working scientifically</h1>
+    <div class="sub">Enzymes and ecological sampling. Every question on the paper comes from one of these twelve codes.</div>
+    <div class="keyline">
+      <span><i class="dot g"></i>Green — WWW, you met the criteria</span>
+      <span><i class="dot p"></i>Pink — EBI, this is your target</span>
+      <span><i class="dot v"></i>Purple — your response, always</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap" id="tabs"></div>
+</nav>
+
+<main>
+  <section class="panel" id="p-ko" role="tabpanel"></section>
+  <section class="panel" id="p-vocab" role="tabpanel" hidden></section>
+  <section class="panel" id="p-quiz" role="tabpanel" hidden></section>
+  <section class="panel" id="p-exam" role="tabpanel" hidden></section>
+  <section class="panel" id="p-progress" role="tabpanel" hidden></section>
+</main>
+
+<footer>Al Yasmina British Academy · Science · Year 9 Term 1 · Your work is saved in this browser only</footer>
+
+<script>
+"use strict";
+
+/* ==========================================================
+   DATA
+   ========================================================== */
+
+const CRITERIA = [
+{code:"CW",week:1,title:"The language of the paper",lesson:"Lesson 1 \u00b7 and every lesson after it",
+ state:"I can state what each command word is asking me to do. State / Name \u2014 short answer, no reason. Describe \u2014 say what happens. Explain \u2014 say what happens AND why. Suggest \u2014 use what you know on something you were not taught. Calculate \u2014 a number, with working shown. Evaluate \u2014 weigh it up and reach a supported judgement.",stateCode:"CW1 \u00b7 unistructural",
+ describe:"I can describe what AO1, AO2 and AO3 questions are asking me to do. AO1 \u2014 do you know it. AO2 \u2014 can you use it somewhere new. AO3 \u2014 can you work with data and methods.",describeCode:"CW2 \u00b7 multistructural",
+ explain:"I can explain why a three-mark question needs three separate points, not one point said three ways.",explainCode:"CW3 \u00b7 relational",
+ evaluate:"I can look at an answer and say which marks it would gain and which it would lose.",evaluateCode:"CW4 \u00b7 extended abstract",
+ vocab:["command word","state","describe","explain","suggest","calculate","evaluate","justify","AO1","AO2","AO3"],
+ wording:"Circle the command word before you write anything. Every question, every time. Marks tell you how much to write. Three marks, three points."},
+
+{code:"9B1",week:1,title:"Enzymes: what they are and how they work",lesson:"Lesson 2 \u00b7 spec 2.10",
+ state:"An enzyme is a biological catalyst \u2014 it speeds up a reaction without being used up. Enzymes are proteins. The substrate is the molecule the enzyme works on. The active site is the part of the enzyme the substrate fits into. The product is what comes out.",stateCode:"9B1a \u00b7 unistructural",
+ describe:"The substrate binds to the active site. The enzyme breaks it down into the product, and is then free to work again. This is the lock-and-key model: the active site is the lock, the substrate is the key.",describeCode:"9B1b \u00b7 multistructural",
+ explain:"An enzyme only works on one substrate because only a substrate with a complementary shape fits its active site.",explainCode:"9B1c \u00b7 relational",
+ evaluate:"The body needs many different enzymes rather than one, because each active site fits only one substrate.",evaluateCode:"9B1d \u00b7 extended abstract",
+ vocab:["enzyme","biological catalyst","substrate","active site","product","specific","lock-and-key","protein"],
+ wording:"An enzyme is not alive and it is not used up. An enzyme is not a hormone. \u201cIt breaks it down\u201d is not an answer unless you name the product."},
+
+{code:"9B2",week:1,title:"Optimum conditions and denaturation",lesson:"Lesson 3 \u00b7 spec 2.11 and 2.13",
+ state:"The optimum is the temperature or pH at which an enzyme works fastest. Human enzymes have an optimum of about 37 \u00b0C. Denatured means the active site has changed shape so the substrate no longer fits.",stateCode:"9B2a \u00b7 unistructural",
+ describe:"As temperature rises towards the optimum, activity increases. Above the optimum, activity falls sharply. The same pattern applies either side of the optimum pH.",describeCode:"9B2b \u00b7 multistructural",
+ explain:"Below the optimum, particles have less kinetic energy, so there are fewer successful collisions between enzyme and substrate. Above the optimum, the bonds holding the enzyme\u2019s shape break, the active site changes shape, and the substrate can no longer bind. Denaturation is permanent \u2014 cooling it down does not fix it.",explainCode:"9B2c \u00b7 relational",
+ evaluate:"I can predict and justify what would happen to enzyme activity at a temperature or pH I have not been given.",evaluateCode:"9B2d \u00b7 extended abstract",
+ vocab:["optimum","denatured","denaturation","kinetic energy","successful collision","permanent"],
+ wording:"Denatured is not \u201ckilled\u201d \u2014 an enzyme was never alive. Denaturation cannot be reversed. This is the most common wrong answer in the topic."},
+
+{code:"WS1",week:1,title:"Designing an investigation \u2014 CORMS",lesson:"Lessons 4 and 13 \u00b7 used in every practical",
+ state:"CORMS. Change \u2014 the independent variable, what I change. Organism \u2014 the subject: same species, age, size and source. Repeat \u2014 how many times, and why. Measure \u2014 the dependent variable, what I measure and with what. Same \u2014 the control variables, what I keep the same. I can identify the independent, dependent and control variables in an investigation.",stateCode:"WS1.1",
+ describe:"I can state a range of values for the independent variable and say why I chose that range. Five values, not two \u2014 enough points to see a trend. I can control the subject \u2014 same species, age, size and source, or same batch, concentration and purity. I can choose the right apparatus for a measurement and say why, using its resolution. I can identify the hazards in a method and state a specific control measure for each one.",describeCode:"WS1.2, WS1.3, WS1.6, WS1.7",
+ explain:"I can state how many repeats I will take and explain why repeats are needed. Three minimum. The explanation is the mark, not the number. I can name at least three control variables and explain what would happen to my results if each one were not controlled \u2014 \u201cit makes it a fair test\u201d is not an explanation and scores nothing. I can write a method another person could follow without asking me a question.",explainCode:"WS1.4, WS1.5, WS1.8",
+ evaluate:"I can evaluate another student\u2019s plan or results against CORMS and justify my judgement. How to write it: \u201cThis plan does not control \u2026 . That matters because \u2026 . Without it you could not tell whether the change in \u2026 was caused by \u2026 or by \u2026 .\u201d",evaluateCode:"WS5.5",
+ vocab:["independent variable","dependent variable","control variable","range","repeat","hazard","control measure","resolution","method"],
+ wording:"CORMS has five letters. Not CORMMS, not COMMS. \u201cFair test\u201d on its own is worth nothing \u2014 say what would go wrong. The independent variable is the one YOU change; the dependent variable is the one that changes as a result."},
+
+{code:"9B3",week:2,title:"The amylase investigation",lesson:"Lesson 5 \u00b7 spec 2.12 \u2014 a required practical",
+ state:"In this investigation the substrate is starch, the enzyme is amylase and the product is maltose. Iodine solution turns from orange-brown to blue-black when starch is present.",stateCode:"9B3a",
+ describe:"A drop of the mixture is tested with iodine at intervals. While starch is still there the iodine turns blue-black. When it stops turning blue-black, all the starch has been broken down.",describeCode:"9B3b",
+ explain:"The iodine test is being used as a timer. The time taken for the blue-black to stop appearing measures how fast the enzyme worked.",explainCode:"9B3c",
+ evaluate:"Judging a colour change by eye limits how accurate the results are, because different people call the end point at different moments.",evaluateCode:"9B3d",
+ vocab:["amylase","starch","maltose","iodine solution","end point","rate"],
+ wording:"Amylase breaks starch down to MALTOSE, not straight to glucose. The iodine is not the reaction \u2014 it is how we watch the reaction."},
+
+{code:"WS2",week:2,title:"Measuring and recording",lesson:"Lessons 5 and 9",
+ state:"I can use apparatus safely and correctly to make a measurement. I can read a scale to the resolution of the instrument, including when the reading falls between two marks. I can use accurate, precise and repeatable correctly: accurate = close to the true value; precise = my repeats are close to each other; repeatable = I get the same result when I do it again. Three different words.",stateCode:"WS2.1, WS2.2, WS5.1",
+ describe:"I can record my data methodically as I collect it, into a table I drew before I started. I can repeat my measurements and record every repeat, including the ones that look wrong. I can record what I observe as well as what I measure \u2014 colour, state, bubbles.",describeCode:"WS2.3, WS2.4, WS2.5",
+ explain:"I can explain why the table is drawn before the practical rather than after: so I know what I am collecting, and so I do not lose data.",explainCode:"",
+ evaluate:"I can say whether my measurements were accurate, precise, both or neither, and give evidence from my own results.",evaluateCode:"",
+ vocab:["resolution","accurate","precise","repeatable","true value","anomaly","qualitative","quantitative"],
+ wording:"An anomaly is left out of the mean. It is never deleted from the table. Accurate and precise are not synonyms. You can be precisely wrong."},
+
+{code:"WS3",week:2,title:"Tables and graphs \u2014 SLAPUK",lesson:"Lessons 4, 6 and 11",
+ state:"SLAPUK. Scale \u2014 sensible, evenly spaced, filling over half the grid. Line \u2014 line of best fit for continuous data, bars for discontinuous. Axes \u2014 independent on the x, dependent on the y. Points \u2014 small neat crosses, plotted accurately. Units \u2014 on every axis label. Key \u2014 where more than one set of data is shown. I can calculate a mean from repeats, leaving out anomalies, to a consistent number of decimal places. I can state what continuous and discontinuous data are and give an example of each.",stateCode:"WS3.2, WS3.3a, WS3.6",
+ describe:"I can design a results table before I collect any data, with the independent variable on the left, a quantity and unit in every heading, and columns for repeats and the mean. I can state what SLAPUK stands for and use all six to draw a graph.",describeCode:"WS3.1, WS3.4",
+ explain:"I can explain why the type of data decides whether I draw a line graph or a bar chart. I can explain why a line of best fit is drawn rather than joining the dots.",explainCode:"WS3.3b",
+ evaluate:"I can mark a graph against SLAPUK and say exactly which marks it would lose.",evaluateCode:"WS3.5",
+ vocab:["scale","line of best fit","axis","axes","plot","unit","key","continuous","discontinuous","categoric","mean"],
+ wording:"Units go in the column heading, never beside every number. Continuous data \u2192 line graph. Discontinuous (categoric) data \u2192 bar chart. A scale that uses a quarter of the grid loses the S mark however neat the rest is."},
+
+{code:"WS4",week:2,title:"Describing, explaining and concluding",lesson:"Lessons 6, 10, 11 and 12",
+ state:"I can identify an anomalous result and say why it is anomalous \u2014 because it does not fit the pattern the others make.",stateCode:"WS4.2",
+ describe:"I can describe a trend using the data \u2014 the direction, and two values that show it. \u201cIt went up\u201d is not a description. How to write it: \u201cAs the temperature increased from 20 \u00b0C to 40 \u00b0C, the time taken decreased from 245 s to 82 s.\u201d",describeCode:"WS4.1",
+ explain:"I can explain a trend using scientific knowledge \u2014 why it happens, not only what happens. I can write a conclusion that answers the question the investigation actually asked. A conclusion that restates the results is not a conclusion.",explainCode:"WS4.3, WS4.4",
+ evaluate:"I can say whether the data supports a given conclusion, or whether the conclusion goes further than the data allows. I can apply what I know to a practical situation I have never been taught, and justify my prediction.",evaluateCode:"WS4.5, WS4.6",
+ vocab:["trend","pattern","anomaly","mean","conclusion","evidence","supported","predict","justify"],
+ wording:"Describe = what happened. Explain = why it happened. A question that says explain and gets a description scores the description mark only. Suggest means you were never taught it. That is the point of the question, not a mistake."},
+
+{code:"WS5",week:2,title:"Evaluating",lesson:"Lessons 7 and 13",
+ state:"Accurate = close to the true value. Precise = repeats close together. Repeatable = same result again.",stateCode:"WS5.1",
+ describe:"I can describe what would have to be kept the same for an investigation to be a fair comparison.",describeCode:"",
+ explain:"I can identify the step in a method where the error came from, and explain why. \u201cHuman error\u201d scores nothing \u2014 which step, and what about it.",explainCode:"WS5.2",
+ evaluate:"I can suggest one improvement to a method and state exactly what it would fix. \u201cBe more careful\u201d and \u201cdo it again\u201d are not improvements. I can say whether a method is valid \u2014 whether it actually measures what it claims to measure. I can evaluate another student\u2019s plan against CORMS and justify my judgement. How to write it: \u201cOne improvement would be to \u2026 . This would fix \u2026 , because at the moment \u2026 .\u201d Two halves. One half is one mark.",evaluateCode:"WS5.3, WS5.4, WS5.5",
+ vocab:["error","improvement","valid","validity","reliable","limitation","evaluate","justify"],
+ wording:"An improvement has two halves: what you would change, and what that fixes. Validity is not accuracy. A precise measurement of the wrong thing is still wrong."},
+
+{code:"9B4",week:2,title:"Ecosystems, abundance and the quadrat",lesson:"Lessons 8 and 9 \u00b7 spec 4.1 and 4.2",
+ state:"Habitat \u2014 where an organism lives. Population \u2014 all the organisms of one species in an area. Community \u2014 all the populations living together. Ecosystem \u2014 the community plus the non-living surroundings. Abundance \u2014 how many of an organism there are in a given area.",stateCode:"9B4a",
+ describe:"A quadrat is a square frame of known area. It is placed on the ground, and everything of the chosen species inside it is counted. This is repeated many times. Placement is random \u2014 by generated coordinates, not by choosing where to put it.",describeCode:"9B4b",
+ explain:"We sample rather than counting everything because counting everything is impossible in a real habitat. Placement must be random so the sample is not biased \u2014 if you choose where to put the quadrat you will choose where you can see the organism.",explainCode:"9B4c",
+ evaluate:"A sampling method gives a misleading result when the sample is too small, the placement is biased, or the organism is clumped rather than evenly spread.",evaluateCode:"9B4d",
+ vocab:["habitat","population","community","ecosystem","abundance","quadrat","sample","random","bias","clumped"],
+ wording:"Population is one species. Community is all of them. They are not interchangeable. \u201cRandom\u201d does not mean \u201cwherever you like\u201d. It means chosen by something other than you."},
+
+{code:"9B5",week:3,title:"Estimating population size",lesson:"Lesson 10 \u00b7 spec 4.2 \u00b7 maths 2B, 2E, 3C, 5C",
+ state:"Estimated population = mean number per quadrat \u00d7 ( total area \u00f7 area of one quadrat ). Show the working and carry the units through.",stateCode:"9B5a",
+ describe:"The mean per quadrat tells you the typical number in that small area. Multiplying by how many quadrats would fit into the whole area scales it up.",describeCode:"9B5b",
+ explain:"More quadrats give a better estimate because the mean is based on more of the habitat. An organism that is clumped rather than evenly spread makes the estimate worse, because a quadrat either lands on a clump or misses it entirely.",explainCode:"9B5c",
+ evaluate:"I can compare my estimate with the true value and account for the difference \u2014 sample size, placement, clumping, edge cases, miscounting.",evaluateCode:"9B5d",
+ vocab:["estimate","mean","quadrat area","total area","scale up","sample size","clumped","edge effect"],
+ wording:"An estimate is not a guess. It is a calculation from a sample. Units must survive the calculation \u2014 quadrat in m\u00b2, field in m\u00b2."},
+
+{code:"9B6",week:3,title:"Distribution, biotic and abiotic factors",lesson:"Lesson 12 \u00b7 spec 4.5",
+ state:"Distribution \u2014 where an organism is found. Biotic \u2014 a living factor. Abiotic \u2014 a non-living factor. Transect \u2014 a line along which samples are taken at intervals.",stateCode:"9B6a",
+ describe:"Abiotic factors: light intensity, temperature, water availability, soil pH, wind. Biotic factors: competition, predation, grazing, disease. Each affects growth: too little light means less photosynthesis; too much competition means fewer resources per organism.",describeCode:"9B6b",
+ explain:"A factor changes along a transect \u2014 light intensity falls as you move from open ground into shade \u2014 and the distribution of an organism changes with it, because the organism can only grow where conditions allow.",explainCode:"9B6c",
+ evaluate:"I can discuss how three named factors affect where an organism is found, and say which is likely to matter most and why.",evaluateCode:"9B6d",
+ vocab:["distribution","biotic","abiotic","transect","light intensity","competition","predation","zonation"],
+ wording:"Biotic = living, abiotic = not living. Two letters apart, opposite meanings. A transect is used when you expect a gradual change. Random quadrats are used when you do not."}
+];
+
+const WEEK_LABELS = {1:"Week 1 \u2014 Exam language and enzymes",2:"Week 2 \u2014 Amylase, data skills and ecosystems",3:"Week 3 \u2014 Sampling, populations and distribution"};
+
+const GLOSSARY = [
+["enzyme","a biological catalyst \u2014 speeds up a reaction without being used up. Enzymes are proteins"],
+["biological catalyst","speeds up a reaction and is not used up by it"],
+["substrate","the molecule the enzyme works on"],
+["active site","the part of the enzyme the substrate fits into"],
+["product","what comes out of the reaction"],
+["specific","an enzyme works on one substrate only"],
+["lock-and-key","the model: active site is the lock, substrate is the key"],
+["optimum","the temperature or pH at which an enzyme works fastest"],
+["denatured","the active site has changed shape so the substrate no longer fits"],
+["denaturation","the change of shape. It is permanent \u2014 cooling does not reverse it"],
+["kinetic energy","energy of movement. Less of it means fewer successful collisions"],
+["successful collision","enzyme and substrate meeting so that the reaction happens"],
+["amylase","the enzyme that breaks starch down into maltose"],
+["starch","the substrate in the amylase investigation"],
+["maltose","the product when amylase breaks down starch. Not glucose"],
+["iodine solution","turns orange-brown to blue-black when starch is present"],
+["end point","the moment the iodine stops turning blue-black \u2014 all the starch has gone"],
+["independent variable","the one YOU change. It goes on the x axis and in the left column"],
+["dependent variable","the one that changes as a result. You measure it"],
+["control variable","something kept the same, so it cannot affect the result"],
+["range","the spread of values of the independent variable. Five values, not two"],
+["repeat","doing the measurement again. Three minimum"],
+["hazard","something in the method that could cause harm"],
+["control measure","the specific thing you do about a hazard"],
+["resolution","the smallest difference an instrument can show"],
+["accurate","close to the true value"],
+["precise","your repeats are close to each other"],
+["repeatable","you get the same result when you do it again"],
+["true value","the value the measurement is trying to reach"],
+["anomaly","a result that does not fit the pattern. Left out of the mean, never deleted"],
+["qualitative","what you observe \u2014 colour, state, bubbles"],
+["quantitative","what you measure as a number"],
+["SLAPUK","Scale, Line, Axes, Points, Units, Key \u2014 the six graph marks"],
+["CORMS","Change, Organism, Repeat, Measure, Same \u2014 the five planning marks"],
+["line of best fit","a smooth line through the trend, not dot-to-dot"],
+["continuous","data that can take any value. Line graph"],
+["discontinuous","data in separate categories. Bar chart"],
+["categoric","another word for discontinuous data"],
+["mean","the total divided by the number of values, anomalies left out"],
+["trend","the direction the data goes, described with two values that show it"],
+["conclusion","the answer to the question the investigation asked"],
+["predict","say what will happen before it does, with a reason"],
+["justify","give the reason that supports your judgement"],
+["error","the step in the method where the result went wrong"],
+["improvement","what you would change AND what that would fix. Two halves"],
+["valid","the method actually measures what it claims to measure"],
+["limitation","something about the method that restricts what the results can show"],
+["habitat","where an organism lives"],
+["population","all the organisms of one species in an area"],
+["community","all the populations living together"],
+["ecosystem","the community plus the non-living surroundings"],
+["abundance","how many of an organism there are in a given area"],
+["quadrat","a square frame of known area, placed and counted inside"],
+["sample","counting part of a habitat to estimate the whole"],
+["random","chosen by something other than you \u2014 generated coordinates"],
+["bias","a sample that favours where you can see the organism"],
+["clumped","grouped together rather than evenly spread. Makes an estimate worse"],
+["estimate","a calculation from a sample. Not a guess"],
+["scale up","multiplying the mean per quadrat by how many quadrats fit the area"],
+["edge effect","organisms on the quadrat boundary, counted inconsistently"],
+["distribution","where an organism is found"],
+["biotic","a living factor \u2014 competition, predation, grazing, disease"],
+["abiotic","a non-living factor \u2014 light, temperature, water, soil pH, wind"],
+["transect","a line along which samples are taken at intervals"],
+["light intensity","how bright it is. An abiotic factor that falls into shade"],
+["zonation","the way organisms change in bands along a gradient"],
+["command word","the word that tells you what the question wants you to do"],
+["AO1","do you know it"],
+["AO2","can you use it somewhere new"],
+["AO3","can you work with data and methods"]
+];
+
+const MISCONCEPTIONS = [
+["An enzyme is alive, or gets used up.","An enzyme is a catalyst and was never alive. It is not used up \u2014 it goes on to work again."],
+["An enzyme is a kind of hormone.","It is not. An enzyme is a protein that speeds up a reaction."],
+["\u201cThe enzyme breaks it down\u201d is an answer.","Not unless you name the product. Starch into maltose, protein into amino acids."],
+["A denatured enzyme has been killed.","It was never alive. Denatured means the active site has changed shape."],
+["Cooling a denatured enzyme brings it back.","Denaturation is permanent. This is the most common wrong answer in the topic."],
+["CORMS has six letters.","Five. Change, Organism, Repeat, Measure, Same. Not CORMMS, not COMMS."],
+["\u201cTo make it a fair test\u201d explains a control variable.","It scores nothing. Say what would go wrong if you did not control it."],
+["Amylase breaks starch into glucose.","Into MALTOSE. Glucose comes later."],
+["The iodine is part of the reaction.","It is not. It is how you watch the reaction \u2014 a timer, not an ingredient."],
+["Accurate and precise mean the same thing.","They do not. You can be precisely wrong. Accurate is close to the true value; precise is repeats close together."],
+["An anomaly should be deleted from the table.","Never. It is recorded, and left out of the mean."],
+["Units go next to every number.","They go in the column heading, once."],
+["A neat graph with a small scale is fine.","A scale using a quarter of the grid loses the S mark however neat the rest is."],
+["\u201cIt went up\u201d describes a trend.","It does not. Give the direction and two values that show it."],
+["\u201cHuman error\u201d is an evaluation.","It scores nothing. Name the step and say what about it went wrong."],
+["\u201cBe more careful\u201d is an improvement.","It is not. An improvement says what you would change and what that fixes."],
+["Population and community mean the same thing.","Population is one species. Community is all of them together."],
+["Random placement means wherever you like.","It means chosen by something other than you \u2014 generated coordinates."],
+["Biotic and abiotic are much the same.","Two letters apart, opposite meanings. Biotic = living, abiotic = not living."],
+["A transect and random quadrats do the same job.","A transect is for a gradual change along a line. Random quadrats are for when you expect no gradient."]
+];
+
+const STEMS = [
+"\u201cThis plan does not control \u2026 . That matters because \u2026 . Without it you could not tell whether the change in \u2026 was caused by \u2026 or by \u2026 .\u201d",
+"\u201cAs the \u2026 increased from \u2026 to \u2026 , the \u2026 decreased from \u2026 to \u2026 .\u201d",
+"\u201cOne improvement would be to \u2026 . This would fix \u2026 , because at the moment \u2026 .\u201d",
+"\u201cEstimated population = mean per quadrat \u00d7 ( total area \u00f7 quadrat area ).\u201d",
+"\u201cThe active site changes shape, so the substrate can no longer bind, so the reaction stops.\u201d"
+];
+
+const FRAMEWORKS = [
+ {name:"CORMS",sub:"Designing an investigation",rows:[
+  ["C","Change \u2014 the independent variable. What I change, and over what range."],
+  ["O","Organism \u2014 the subject. Same species, age, size and source."],
+  ["R","Repeat \u2014 how many times, and why. Three minimum."],
+  ["M","Measure \u2014 the dependent variable. What I measure, with what, in what units."],
+  ["S","Same \u2014 the control variables. At least three, each with a reason."]]},
+ {name:"SLAPUK",sub:"Drawing a graph",rows:[
+  ["S","Scale \u2014 sensible, evenly spaced, filling over half the grid."],
+  ["L","Line \u2014 line of best fit for continuous data, bars for discontinuous."],
+  ["A","Axes \u2014 independent on the x, dependent on the y."],
+  ["P","Points \u2014 small neat crosses, plotted accurately."],
+  ["U","Units \u2014 on every axis label."],
+  ["K","Key \u2014 where more than one set of data is shown."]]}
+];
+
+const COMMAND_WORDS = [
+["State / Name","Give the answer. No explanation needed, no marks for one."],
+["Describe","Say what happens. Still no because."],
+["Explain","Say what happens AND why. An explanation without a because is not an explanation."],
+["Calculate","Show the working. A correct answer with no working can still lose marks."],
+["Identify","Pick it out of the information you have been given."],
+["Suggest","Apply what you know to something you have not been taught. More than one answer may be right."],
+["Compare","Both things, in the same sentence, using words like whereas and higher than."],
+["Evaluate","Give both sides, then a judgement. A judgement on its own scores nothing."]
+];
+
+const QUIZZES = [
+{week:1,label:"Week 1",title:"Exam language and enzymes",note:"Lessons 1 to 4",qs:[
+ {q:"Which command word asks you to say what happens AND why?",o:["State","Describe","Explain","Name"],a:2,c:"CW",sub:"CW1",p:"Q1c"},
+ {q:"A question is worth 3 marks. How many separate points does your answer need?",o:["One, explained three times","Three separate points","As many as will fit in the space","It does not matter as long as it is right"],a:1,c:"CW",sub:"CW3",p:"Q3b"},
+ {q:"Which type of question asks you to use knowledge in a situation you have not been taught?",o:["AO1","AO2","AO3","None of them"],a:1,c:"CW",sub:"CW2",p:"Q1d"},
+ {q:"An enzyme is best described as:",o:["A living thing that breaks down food","Something that speeds up a reaction without being used up","A type of food molecule","A hormone made by the pancreas"],a:1,c:"9B1",sub:"9B1",p:"Q1a"},
+ {q:"What is the name of the part of an enzyme that the substrate fits into?",o:["The product","The catalyst","The active site","The membrane"],a:2,c:"9B1",sub:"9B1",p:"Q1b"},
+ {q:"Why can an enzyme only break down one type of substrate?",o:["Enzymes are too small to work on big molecules","Only a substrate with a matching shape fits the active site","Each enzyme is made in a different organ","Enzymes are used up after one reaction"],a:1,c:"9B1",sub:"9B1",p:"Q1c"},
+ {q:"What does optimum mean?",o:["The highest temperature an enzyme can survive","The temperature or pH at which an enzyme works fastest","The point at which an enzyme is denatured","The average speed of the reaction"],a:1,c:"9B2",sub:"9B2",p:"Q2a"},
+ {q:"An enzyme is heated to 70 \u00b0C and then cooled back to 37 \u00b0C. What happens to its activity?",o:["It returns to normal","It stays at zero, because denaturation is permanent","It becomes faster than before","It halves"],a:1,c:"9B2",sub:"9B2",p:"Q2d"},
+ {q:"What does CORMS stand for?",o:["Change, Organism, Repeat, Measure, Same","Control, Observe, Record, Measure, Show","Change, Order, Record, Method, Sample","Collect, Organise, Repeat, Mean, Summarise"],a:0,c:"WS1",sub:"WS1.1",p:"Q3a"},
+ {q:"Which enzyme breaks down protein?",o:["Amylase","Lipase","Protease","Catalase"],a:2,c:"Y8",sub:"Y8 8A5",p:"\u2014"}
+]},
+{week:2,label:"Week 2",title:"Planning, measuring and the amylase practical",note:"Lessons 5 to 8. Six new, four retrieved.",qs:[
+ {q:"In an investigation into the effect of pH on amylase, what is the independent variable?",o:["The time taken","The pH","The volume of starch","The temperature"],a:1,c:"WS1",sub:"WS1.1",p:"Q3a"},
+ {q:"Why must the temperature be kept the same in that investigation?",o:["To make it a fair test","So you could not tell whether a change in rate was caused by pH or by temperature","Because enzymes only work at one temperature","So the reaction happens faster"],a:1,c:"WS1",sub:"WS1.5",p:"Q3b"},
+ {q:"How many repeats should be taken, as a minimum?",o:["One","Two","Three","Ten"],a:2,c:"WS1",sub:"WS1.4",p:"Q9"},
+ {q:"In the amylase investigation, what is the product?",o:["Starch","Iodine","Maltose","Glucose"],a:2,c:"9B3",sub:"9B3",p:"Q5a"},
+ {q:"What is iodine solution being used for in this investigation?",o:["To speed up the reaction","To time the reaction by showing when the starch has gone","To measure the temperature","To make the amylase work"],a:1,c:"9B3",sub:"9B3",p:"Q5b"},
+ {q:"Where should the independent variable go in a results table?",o:["The left-hand column","The right-hand column","Anywhere","In the title"],a:0,c:"WS3",sub:"WS3.1",p:"Q4a"},
+ {q:"Which of these is the abundance of an organism?",o:["Where it is found","How many of it there are in a given area","How big it grows","How long it lives"],a:1,c:"9B4",sub:"9B4",p:"Q7a"},
+ {q:"Which command word asks you to make a judgement and support it?",o:["State","Describe","Suggest","Evaluate"],a:3,c:"CW",sub:"CW1",p:"Q9"},
+ {q:"An enzyme is denatured. What has happened?",o:["It has been used up","The active site has changed shape","It has run out of substrate","It has cooled down"],a:1,c:"9B2",sub:"9B2",p:"Q2c"},
+ {q:"Which of these is a biological catalyst?",o:["Starch","Maltose","Amylase","Iodine"],a:2,c:"9B1",sub:"9B1",p:"Q1a"}
+]},
+{week:3,label:"Week 3",title:"Graphs, trends and evaluating",note:"Lessons 6, 7 and 8. This is the AO3 week.",qs:[
+ {q:"What does SLAPUK stand for?",o:["Scale, Line, Axes, Points, Units, Key","Sample, Line, Average, Plot, Units, Key","Scale, Label, Axes, Plot, Units, Key","Scale, Line, Amount, Points, Unit, Kind"],a:0,c:"WS3",sub:"WS3.4",p:"Q4c"},
+ {q:"Repeat readings are 168 s, 175 s, 240 s and 172 s. What should you do with 240 s?",o:["Include it in the mean","Leave it out of the mean and note it as anomalous","Delete it from the table","Repeat the whole experiment"],a:1,c:"WS3",sub:"WS3.2",p:"Q4b"},
+ {q:"Which of these is a description of a trend?",o:["The time went down","As the temperature increased from 20 to 40 \u00b0C, the time fell from 245 s to 82 s","The graph shows a pattern","Temperature affects the time"],a:1,c:"WS4",sub:"WS4.1",p:"Q2b"},
+ {q:"Temperature and time can take any value. What kind of data is this?",o:["Discontinuous","Categoric","Continuous","Anomalous"],a:2,c:"WS3",sub:"WS3.3a",p:"Q4d"},
+ {q:"What does accurate mean?",o:["The repeats are close to each other","The result is close to the true value","The result was measured carefully","The result was repeated three times"],a:1,c:"WS5",sub:"WS5.1",p:"Q6a"},
+ {q:"Which of these is a real improvement to a method?",o:["Be more careful with the timing","Concentrate harder","Use a colour chart so everyone judges the end point the same way","Do the experiment again"],a:2,c:"WS5",sub:"WS5.3",p:"Q6c"},
+ {q:"Why is \u201cthe results were not accurate because of human error\u201d a poor evaluation?",o:["It is too short","It does not say which step went wrong or why","Human error is never the cause","It should say equipment error instead"],a:1,c:"WS5",sub:"WS5.2",p:"Q6b"},
+ {q:"A scale on a graph should:",o:["Use whatever intervals fit","Be evenly spaced and fill more than half the grid","Always start at zero","Match the numbers in the table exactly"],a:1,c:"WS3",sub:"WS3.4",p:"Q4c"},
+ {q:"What must a conclusion do?",o:["Repeat the results","Answer the question the investigation asked","Describe the method","List the equipment used"],a:1,c:"WS4",sub:"WS4.4",p:"Q9"},
+ {q:"What is the product when amylase breaks down starch?",o:["Glucose","Maltose","Amino acids","Fatty acids"],a:1,c:"9B3",sub:"9B3",p:"Q5a"}
+]},
+{week:4,label:"Week 4",title:"Sampling, estimating and distribution",note:"Lessons 9 to 12. Six new, four retrieved.",qs:[
+ {q:"Why must quadrats be placed randomly?",o:["It is quicker","So the sample is not biased towards where you can see the organism","So you can cover the whole field","Because the exam says so"],a:1,c:"9B4",sub:"9B4",p:"Q7b"},
+ {q:"Eight quadrats give 4, 6, 3, 7, 5, 4, 6 and 5 organisms. What is the mean per quadrat?",o:["4","5","6","40"],a:1,c:"9B5",sub:"9B5",p:"Q7c"},
+ {q:"A field is 20 m \u00d7 15 m and a quadrat is 0.25 m\u00b2. How many quadrats would fit in the field?",o:["300","600","1200","75"],a:2,c:"9B5",sub:"9B5",p:"Q7d"},
+ {q:"Which of these is an abiotic factor?",o:["Grazing by rabbits","Competition from other plants","Light intensity","Disease"],a:2,c:"9B6",sub:"9B6",p:"Q8a"},
+ {q:"What is a transect?",o:["A square frame of known area","A line along which samples are taken at intervals","A type of graph","A random sample"],a:1,c:"9B6",sub:"9B6",p:"Q8b"},
+ {q:"Why does clumping make a population estimate less reliable?",o:["Clumped organisms are harder to see","A quadrat either lands on a clump or misses it entirely","Clumped organisms move around","It does not affect the estimate"],a:1,c:"9B5",sub:"9B5",p:"Q7d"},
+ {q:"Which chart should you draw for discontinuous data?",o:["A line graph","A bar chart","A scatter graph","A pie chart"],a:1,c:"WS3",sub:"WS3.3b",p:"Q4d"},
+ {q:"Which of these is a control variable in a pH and amylase investigation?",o:["The pH of the solution","The time taken for the starch to disappear","The volume of starch solution","The colour of the iodine"],a:2,c:"WS1",sub:"WS1.5",p:"Q3b"},
+ {q:"All the organisms of one species in an area are called:",o:["A community","A population","An ecosystem","A habitat"],a:1,c:"9B4",sub:"9B4",p:"Q7a"},
+ {q:"Above the optimum temperature, why does enzyme activity fall?",o:["The substrate runs out","The active site changes shape so the substrate no longer fits","The enzyme is used up","The reaction reverses"],a:1,c:"9B2",sub:"9B2",p:"Q2c"}
+]},
+{week:5,label:"Revision",title:"The whole term",note:"Set on the Monday of assessment week. One question per criterion. This is not a test.",qs:[
+ {q:"Which command word asks you to use knowledge in a situation you were never taught?",o:["State","Describe","Suggest","Name"],a:2,c:"CW",sub:"CW1",p:"Q1d"},
+ {q:"An enzyme speeds up a reaction and:",o:["Is used up in the process","Is not used up","Becomes part of the product","Turns into the substrate"],a:1,c:"9B1",sub:"9B1",p:"Q1a"},
+ {q:"Denaturation is:",o:["Temporary \u2014 cooling reverses it","Permanent \u2014 the active site has changed shape","What happens below the optimum","The same as the enzyme being used up"],a:1,c:"9B2",sub:"9B2",p:"Q2d"},
+ {q:"Amylase breaks starch down into:",o:["Glucose","Maltose","Amino acids","Glycerol"],a:1,c:"9B3",sub:"9B3",p:"Q5a"},
+ {q:"The O in CORMS stands for:",o:["Observation","Organism","Order","Outcome"],a:1,c:"WS1",sub:"WS1.1",p:"Q3a"},
+ {q:"Which is missing from a results table with headings \u2018Time\u2019 and \u2018Temperature\u2019?",o:["A title","The units","The date","A border"],a:1,c:"WS3",sub:"WS3.1",p:"Q4a"},
+ {q:"Which is a description of a trend using the data?",o:["It decreased","It decreased from 245 s to 82 s as temperature rose from 20 to 40 \u00b0C","There is a negative relationship","The graph goes down"],a:1,c:"WS4",sub:"WS4.1",p:"Q2b"},
+ {q:"An improvement needs two things: what you would change, and:",o:["How long it would take","What it would fix","Who would do it","How much it would cost"],a:1,c:"WS5",sub:"WS5.3",p:"Q6c"},
+ {q:"Quadrats must be placed randomly so that:",o:["The sample is quicker to collect","The sample is not biased","Every organism is counted","The quadrats do not overlap"],a:1,c:"9B4",sub:"9B4",p:"Q7b"},
+ {q:"Estimated population equals:",o:["Mean per quadrat \u00f7 total area","Mean per quadrat \u00d7 (total area \u00f7 quadrat area)","Total counted \u00d7 number of quadrats","Total area \u00f7 mean per quadrat"],a:1,c:"9B5",sub:"9B5",p:"Q7d"}
+]}
+];
+
+const EXAM = [
+{n:"1",intro:"Enzymes are used by the body to break down large food molecules.",parts:[
+ {id:"1a",marks:1,c:"9B1",ao:"AO1",stem:"State what is meant by the <b>substrate</b> of an enzyme.",
+  mps:[{t:"The molecule the enzyme works on",need:[["molecule","substance","chemical","thing","food"],["works on","acts on","broken down","breaks down","binds","fits","attaches","enzyme"]]}],
+  model:"The molecule that the enzyme works on."},
+ {id:"1b",marks:1,c:"9B1",ao:"AO1",stem:"Name the model used to describe the way a substrate fits into an enzyme.",
+  mps:[{t:"The lock-and-key model",need:[["lock and key","lock","key"]]}],
+  model:"The lock-and-key model."},
+ {id:"1c",marks:2,c:"9B1",ao:"AO1",stem:"Explain why an enzyme is not used up in the reaction it speeds up.",
+  mps:[
+   {t:"It is a catalyst \u2014 it is unchanged by the reaction",need:[["catalyst","not used up","unchanged","not changed","stays the same"]]},
+   {t:"Once the product is released the active site is free to bind another substrate and work again",need:[["again","another","free","releas","reus","repeat","carries on","goes on","more than once","many times"]]}
+  ],
+  model:"An enzyme is a biological catalyst, so it is not changed by the reaction. Once the product leaves the active site, the site is free for another substrate to bind, and the enzyme works again."},
+ {id:"1d",marks:1,c:"9B1",ao:"AO2",stem:"Suggest why an enzyme that digests starch cannot also digest protein.",
+  mps:[{t:"Only a substrate with a complementary shape fits the active site, and protein is the wrong shape",need:[["active site","shape","complementary","fit"]]}],
+  model:"Only a substrate with a complementary shape fits the active site. Protein is a different shape from starch, so it cannot bind to that enzyme's active site."}
+]},
+{n:"2",intro:"A student measured the activity of an enzyme at different pH values. The results are shown below.",
+ table:{head:["pH","2","4","6","8","10","12"],rows:[["Relative activity","8","30","74","45","12","0"]]},
+ parts:[
+ {id:"2a",marks:1,c:"9B2",ao:"AO2",stem:"State the optimum pH for this enzyme.",
+  mps:[{t:"pH 6",need:[["=6","ph 6"]]}],exactOk:["6","ph 6","a ph of 6"],
+  model:"pH 6."},
+ {id:"2b",marks:2,c:"WS4",ao:"AO3",stem:"Describe what happens to the activity between pH 6 and pH 12. Use the data in your answer.",
+  mps:[
+   {t:"The activity decreases / falls",need:[["decreas","falls","fell","drops","goes down","went down","reduc","lower"]]},
+   {t:"Two values quoted from the data \u2014 from 74 down to 0",need:[["74"],["=0","zero"]]}
+  ],
+  model:"The activity decreases. It falls from a relative activity of 74 at pH 6 to 0 at pH 12."},
+ {id:"2c",marks:2,c:"9B2",ao:"AO1",stem:"Explain, in terms of the active site, why the activity falls above the optimum pH.",
+  mps:[
+   {t:"The active site changes shape / the enzyme is denatured",need:[["active site","denatur","shape"]]},
+   {t:"So the substrate can no longer bind or fit",need:[["no longer","cannot","cant","does not fit","doesnt fit","stops","not fit","unable"]]}
+  ],
+  model:"Above the optimum the bonds holding the enzyme's shape break, so the active site changes shape. The substrate no longer fits the active site, so it cannot bind and the reaction stops."},
+ {id:"2d",marks:1,c:"9B2",ao:"AO2",stem:"The enzyme is placed at pH 12 and then returned to pH 6. Predict what happens to the activity, and give a reason.",
+  mps:[{t:"It stays at zero, because denaturation is permanent",need:[["stays","remains","still","no activity","zero","nothing","does not","doesnt","wont","will not"],["permanent","cannot be reversed","irreversible","denatur","changed shape","not fix"]]}],
+  model:"The activity stays at zero. Denaturation is permanent, so the active site does not go back to its original shape when the pH is returned to 6."}
+]},
+{n:"3",intro:"A student plans an investigation into the effect of the concentration of amylase on the time taken to break down starch.",parts:[
+ {id:"3a",marks:2,c:"WS1",ao:"AO1",stem:"State the independent variable and the dependent variable in this investigation.",
+  fields:[
+   {label:"Independent variable",need:[["concentration","amount of amylase","how much amylase","amylase"]],model:"the concentration of amylase"},
+   {label:"Dependent variable",need:[["time","how long","rate"]],model:"the time taken for the starch to be broken down"}
+  ]},
+ {id:"3b",marks:4,c:"WS1",ao:"AO3",stem:"Name TWO control variables for this investigation. For each one, explain what would happen to the results if it were not controlled.",
+  mps:[
+   {t:"Temperature named as a control variable",need:[["temperature","temp"]]},
+   {t:"A second control variable named \u2014 the volume or concentration of starch, the pH, or the volume of the mixture",need:[["starch","ph","volume","amount","concentration","mass"]]},
+   {t:"One explained as: you could not tell whether the change in time was caused by the amylase or by that variable",need:[["could not tell","couldnt tell","not know","dont know","do not know","caused by","cannot tell","cant tell","instead of","rather than","which one"]]},
+   {t:"The other explained as: that variable changes the time on its own",need:[["affect","changes the time","change the time","take longer","longer whatever","slower","faster","increase the time","decrease the time","speeds up","slows","own"]]}
+  ],
+  model:"Temperature must be kept the same. Temperature changes enzyme activity on its own, so if it varied you could not tell whether a change in the time was caused by the amylase concentration or by the temperature. The volume and concentration of starch must also be kept the same. More starch takes longer to break down whatever the enzyme concentration, so the times could not be fairly compared."}
+]},
+{n:"4",intro:"A student recorded results from the amylase investigation in the table below.",
+ table:{head:["Time","Amylase concentration"],rows:[["210","0.5"],["140","1.0"],["75","2.0"]]},
+ parts:[
+ {id:"4a",marks:2,c:"WS3",ao:"AO3",stem:"Give TWO faults in the way this results table has been drawn.",
+  mps:[
+   {t:"There are no units in the column headings",need:[["unit"]]},
+   {t:"The independent variable is not in the left-hand column",need:[["left","independent","wrong column","wrong way","order","first column","swap"]]}
+  ],
+  model:"There are no units in either column heading. The independent variable, amylase concentration, should be in the left-hand column, not the right. (A third fault: there are no columns for repeats or a mean.)"},
+ {id:"4b",marks:2,c:"WS3",ao:"AO2",stem:"The student repeated the measurement at a concentration of 1.0 four times and recorded: 140 s, 146 s, 205 s and 143 s. Calculate the mean time, leaving out the anomalous result. Show your working.",
+  mps:[
+   {t:"Working: 205 s left out, and (140 + 146 + 143) \u00f7 3",need:[["429","140 146 143","3"]]},
+   {t:"Mean = 143 s",need:[["143"]]}
+  ],
+  model:"205 s is anomalous and is left out. (140 + 146 + 143) \u00f7 3 = 429 \u00f7 3 = 143 s."},
+ {id:"4c",marks:2,c:"WS3",ao:"AO1",stem:"State TWO things that must be true of the scale on a graph.",
+  mps:[
+   {t:"It must be evenly spaced",need:[["even","equal","regular","consistent","same interval","sensible"]]},
+   {t:"It must fill more than half the grid",need:[["half","most of","fill","large","big enough","majority"]]}
+  ],
+  model:"The scale must be evenly spaced, and it must fill more than half of the grid."},
+ {id:"4d",marks:1,c:"WS3",ao:"AO2",stem:"The student plots amylase concentration against time. State whether the data is continuous or discontinuous, and give a reason.",
+  mps:[{t:"Continuous, because both variables can take any value",need:[["continuous"],["any value","any number","measured","not categor","in between","decimal","numerical"]]}],
+  model:"Continuous, because both the concentration and the time can take any value rather than falling into separate categories."}
+]},
+{n:"5",intro:"In an investigation, amylase was added to starch solution. Iodine solution was used to follow the reaction.",parts:[
+ {id:"5a",marks:3,c:"9B3",ao:"AO1",stem:"Complete the table for this investigation.",
+  fields:[
+   {label:"Substrate",need:[["starch"]],model:"starch"},
+   {label:"Product",need:[["maltose"]],model:"maltose (not glucose)"},
+   {label:"Chemical used to follow the reaction",need:[["iodine"]],model:"iodine solution"}
+  ]},
+ {id:"5b",marks:2,c:"9B3",ao:"AO2",stem:"A student tests a drop of the mixture with iodine every 30 seconds. Explain why the iodine test is described as a timer rather than as part of the reaction.",
+  mps:[
+   {t:"The iodine shows whether starch is still present \u2014 it does not take part in the reaction",need:[["shows","tells","indicat","detect","test for","present","still there","whether"]]},
+   {t:"When it stops turning blue-black all the starch has gone, so the time taken measures how fast the enzyme worked",need:[["blue black","stops","end point","time taken","how fast","rate","finished","all the starch"]]}
+  ],
+  model:"The iodine is not part of the reaction \u2014 it only shows whether starch is still present. While starch remains, the drop turns blue-black. When it stops turning blue-black, all the starch has been broken down, so the time until that moment measures how fast the amylase worked."}
+]},
+{n:"6",parts:[
+ {id:"6a",marks:2,c:"WS5",ao:"AO1",stem:"State the difference between a result that is <b>repeatable</b> and a result that is <b>accurate</b>.",
+  mps:[
+   {t:"Repeatable \u2014 you get the same result when you do it again",need:[["same result","same answer","again","consistent","repeat"]]},
+   {t:"Accurate \u2014 it is close to the true value",need:[["true value","correct value","real value","right value","close to the true"]]}
+  ],
+  model:"Repeatable means you get the same result when you do the measurement again. Accurate means the result is close to the true value. A result can be repeatable and still be wrong."},
+ {id:"6b",marks:1,c:"WS5",ao:"AO3",stem:"A student writes: \u201cOur results were wrong because we did not have enough time.\u201d Explain why this is not a good evaluation.",
+  mps:[{t:"It does not name the step that went wrong or say what about it caused the error",need:[["which step","what step","step","specific","vague","does not say","doesnt say","not say what","no detail","what went wrong","how it"]]}],
+  model:"It does not name which step of the method went wrong, or say what about it caused the error. An evaluation has to identify the step and explain why it affected the result."},
+ {id:"6c",marks:2,c:"WS2",ao:"AO3",stem:"In this investigation the students timed the end point with a wall clock that showed only whole minutes. Suggest ONE improvement to the method, and state what your improvement would fix.",
+  mps:[
+   {t:"A specific improvement is named \u2014 e.g. a stopwatch reading to 0.1 s",need:[["stopwatch","stop watch","timer","digital","data logger","light sensor","colorimeter","0 1","tenth","second"]]},
+   {t:"What it fixes is stated \u2014 the resolution was too coarse to show the difference between the times",need:[["resolution","precise","accurate","nearest minute","whole minute","too coarse","small difference","differences","exact","more detail","closer"]]}
+  ],
+  model:"Use a stopwatch that reads to 0.1 s. This fixes the fact that the wall clock's resolution was only one minute, which is too coarse to show the difference between times that may be only a few seconds apart."}
+]},
+{n:"7",intro:"A student used quadrats to estimate the number of clover plants on a school lawn. The lawn measures 25 m \u00d7 8 m. Each quadrat has an area of 0.5 m\u00b2. The number of clover plants in each of six quadrats was: 7, 5, 8, 6, 4, 6",parts:[
+ {id:"7a",marks:1,c:"9B4",ao:"AO1",stem:"State what is meant by a <b>population</b>.",
+  mps:[{t:"All the organisms of one species in an area",need:[["one species","same species","a species"],["area","all","habitat","place"]]}],
+  model:"All the organisms of one species living in an area."},
+ {id:"7b",marks:2,c:"9B4",ao:"AO1",stem:"Explain why the student sampled with quadrats instead of counting every clover plant on the lawn.",
+  mps:[
+   {t:"Counting every organism is impossible / would take far too long",need:[["impossible","too long","cannot count","cant count","not practical","impractical","too many","would take"]]},
+   {t:"So a sample is taken and scaled up to estimate the whole population",need:[["sample","estimat","scale","represent","part of","work out the total"]]}
+  ],
+  model:"Counting every clover plant on the whole lawn would be impossible in a real habitat. Instead a sample is taken from several quadrats and scaled up to estimate the population of the whole lawn."},
+ {id:"7c",marks:1,c:"9B5",ao:"AO2",stem:"Calculate the mean number of clover plants per quadrat.",
+  mps:[{t:"6",need:[["=6"]]}],exactOk:["6","6 plants","6 clover"],
+  model:"(7 + 5 + 8 + 6 + 4 + 6) \u00f7 6 = 36 \u00f7 6 = 6 plants per quadrat."},
+ {id:"7d",marks:3,c:"9B5",ao:"AO2",stem:"Use your mean to estimate the total number of clover plants on the lawn. Show your working.",
+  mps:[
+   {t:"Total area = 25 \u00d7 8 = 200 m\u00b2",need:[["200"]]},
+   {t:"Number of quadrats that fit = 200 \u00f7 0.5 = 400",need:[["400"]]},
+   {t:"Estimate = 6 \u00d7 400 = 2400 plants",need:[["2400","2 400"]]}
+  ],
+  model:"Total area = 25 \u00d7 8 = 200 m\u00b2. Number of quadrats that would fit = 200 \u00f7 0.5 = 400. Estimated population = 6 \u00d7 400 = 2400 clover plants."}
+]},
+{n:"8",parts:[
+ {id:"8a",marks:2,c:"9B6",ao:"AO1",stem:"State what is meant by a <b>biotic</b> factor, and give one example.",
+  mps:[
+   {t:"A living factor",need:[["living","alive","organism","biological"]]},
+   {t:"A valid example \u2014 competition, predation, grazing or disease",need:[["competition","predation","predator","grazing","disease","food supply","pathogen"]]}
+  ],
+  model:"A biotic factor is a living factor. One example is competition from other plants. (Predation, grazing and disease also score.)"},
+ {id:"8b",marks:2,c:"9B6",ao:"AO2",stem:"A student wants to find out how the number of moss plants changes as you move from the base of a shaded wall out into an open playground. Explain why a transect is more suitable than randomly placed quadrats.",
+  mps:[
+   {t:"A gradual change in an abiotic factor is expected along that line",need:[["gradual","gradient","change","light","shade","abiotic","along","distance"]]},
+   {t:"A transect samples at intervals along the line, so the change with distance can be seen \u2014 random quadrats would not show it",need:[["interval","along the line","along the transect","with distance","every metre","at points","evenly spaced","in order","show the change","zonation","random would not","across the gradient"]]}
+  ],
+  model:"The light intensity changes gradually as you move away from the wall, so a gradual change in the moss is expected along that line. A transect samples at set intervals along the line, so the change with distance can be seen. Randomly placed quadrats would give an overall estimate but would not show how the number changes across the gradient."},
+ {id:"8c",marks:1,c:"9B6",ao:"AO2",stem:"Name one abiotic factor that could affect where the moss grows.",
+  mps:[{t:"A valid abiotic factor \u2014 light intensity, temperature, water availability, soil pH or wind",need:[["light","temperature","water","moisture","ph","wind","humid","shade"]]}],
+  model:"Light intensity. (Temperature, water availability, soil pH and wind also score.)"}
+]},
+{n:"9",intro:"A student says: \u201cDaisies grow better in the open part of the field than under the trees.\u201d",parts:[
+ {id:"9",marks:6,c:"WS1",ao:"AO2",cap:6,
+  stem:"Design an investigation to test this claim.",
+  hint:"In your answer you should use CORMS, and describe how you would present your results.",
+  mps:[
+   {t:"Change \u2014 the area sampled: open field compared with under the trees",need:[["open","shade","under the tree","area","two areas","both"]]},
+   {t:"Organism \u2014 the same species, same field, same day",need:[["same species","same field","same day","same time","same site","same type","same kind"]]},
+   {t:"Repeat \u2014 several quadrats in each area, at least three, so a reliable mean can be taken",need:[["repeat","several","ten","at least three","many quadrats","more than one","number of quadrats"]]},
+   {t:"Measure \u2014 the number of daisies inside a quadrat of known area",need:[["quadrat"],["count","number","measure","record","tally"]]},
+   {t:"Same \u2014 the control variables: quadrat size, time of day, same person counting",need:[["same size","quadrat size","time of day","same person","same method","keep the same","control variable"]]},
+   {t:"Placement is random within each area, using generated coordinates, to avoid bias",need:[["random","coordinat","bias","unbiased"]]},
+   {t:"Results recorded in a table drawn beforehand, with units in the headings and a mean",need:[["table","mean","units","record"]]},
+   {t:"Presented as a bar chart, because open and shaded are discontinuous categories",need:[["bar chart","bar graph"]]}
+  ],
+  model:"Change: the area sampled \u2014 the open part of the field compared with under the trees. Organism: the same species, daisies, in the same field on the same day. Repeat: at least ten quadrats in each area, so an anomalous quadrat does not distort the mean. Measure: the number of daisies inside a quadrat of known area, counted the same way each time. Same: the quadrat size, the time of day, the method of placement and the person counting are all kept the same. Within each area the quadrats are placed randomly using generated coordinates, so the sample is not biased towards where the daisies can be seen. Results go into a table drawn before starting, with units in the headings and a column for the mean. They are presented as a bar chart, because open and shaded are separate categories, so the data is discontinuous."}
+]}
+];
+
+const AO_TOTALS = {AO1:20,AO2:21,AO3:11};
+const PAPER_TOTAL = 52;
+const CODES = CRITERIA.map(c=>c.code);
+const RUNG_TOTAL = CRITERIA.length*4;
+
+/* ==========================================================
+   STATE
+   ========================================================== */
+const KEY = "yba-y9-t1-v1";
+let S = {rungs:{},checkins:[],quiz:{},exam:{}};
+
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(raw){ const p = JSON.parse(raw); if(p && typeof p === "object") S = Object.assign(S,p); }
+  }catch(e){ /* storage unavailable — carry on without saving */ }
+}
+let saveTimer=null;
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(()=>{
+    try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){}
+  },250);
+}
+load();
+
+/* ==========================================================
+   HELPERS
+   ========================================================== */
+const $ = (s,r)=> (r||document).querySelector(s);
+function el(tag,cls,html){const n=document.createElement(tag);if(cls)n.className=cls;if(html!=null)n.innerHTML=html;return n;}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function normalise(s){
+  return " "+String(s||"")
+    .toLowerCase()
+    .replace(/[’']/g,"")
+    .replace(/[^a-z0-9°]+/g," ")
+    .replace(/\s+/g," ")
+    .trim()+" ";
+}
+function hasAny(norm,list){
+  return list.some(w=>{
+    const t=normalise(w).trim();
+    if(!t) return false;
+    if(String(w).charAt(0)==="=") return norm.indexOf(" "+t+" ")!==-1;   // whole word only
+    return norm.indexOf(" "+t)!==-1;                                      // word-start, allows endings
+  });
+}
+function scoreMP(norm,mp){ return (mp.need||[]).every(group=>hasAny(norm,group)); }
+
+function criterionByCode(c){ return CRITERIA.find(x=>x.code===c); }
+function today(){ const d=new Date(); return d.toLocaleDateString("en-GB",{day:"2-digit",month:"short"}); }
+
+/* ==========================================================
+   TABS
+   ========================================================== */
+const TABS=[["ko","Knowledge organiser"],["vocab","Vocabulary"],["quiz","Weekly quizzes"],["exam","Exam practice"],["progress","My progress"]];
+function buildTabs(){
+  const wrap=$("#tabs");
+  TABS.forEach(([id,label],i)=>{
+    const b=el("button",null,label);
+    b.setAttribute("role","tab");
+    b.setAttribute("aria-selected", i===0?"true":"false");
+    b.onclick=()=>showTab(id);
+    b.dataset.tab=id;
+    wrap.appendChild(b);
+  });
+}
+function showTab(id){
+  TABS.forEach(([t])=>{ $("#p-"+t).hidden = (t!==id); });
+  document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-selected", b.dataset.tab===id?"true":"false"));
+  if(id==="progress") renderProgress();
+  window.scrollTo({top:0,behavior:"auto"});
+}
+
+/* ==========================================================
+   KNOWLEDGE ORGANISER
+   ========================================================== */
+let koWeek = 1;
+function renderKO(){
+  const p=$("#p-ko"); p.innerHTML="";
+  p.appendChild(el("div","intro","Twelve criteria, three weeks. Tick a rung when you can do it <strong>without looking</strong> — cover the text, write it out, then check. Every week, give each criterion a red, amber or green in <b>My progress</b> and revise the reds."));
+
+  const bar=el("div","weekbar");
+  Object.keys(WEEK_LABELS).map(Number).forEach(w=>{ const label=WEEK_LABELS[w];
+    const b=el("button",null,label);
+    b.setAttribute("aria-pressed", koWeek===w?"true":"false");
+    b.onclick=()=>{koWeek=w;renderKO();};
+    bar.appendChild(b);
+  });
+  p.appendChild(bar);
+
+  CRITERIA.filter(c=>c.week===koWeek).forEach(c=>p.appendChild(koCard(c)));
+}
+
+function koCard(c){
+  const card=el("div","card");
+  const head=el("div","card-head");
+  head.appendChild(el("div","code",esc(c.code)+" "+esc(c.title)+"<small>"+esc(c.lesson)+"</small>"));
+  head.appendChild(ragWidget(c.code));
+  card.appendChild(head);
+
+  const grid=el("div","ladder");
+  const rail=el("div","rail");
+  const col=el("div");
+  [["State it","state"],["Describe it","describe"],["Explain it","explain"],["Evaluate it","evaluate"]].forEach(([label,k])=>{
+    if(!c[k]) return;
+    const rung=el("div","rung");
+    const key=c.code+":"+k;
+    const knob=el("button","knob");
+    knob.type="button";
+    knob.setAttribute("aria-pressed", S.rungs[key]?"true":"false");
+    knob.setAttribute("aria-label","Tick "+label+" for "+c.code);
+    knob.onclick=()=>{ S.rungs[key]=!S.rungs[key]; knob.setAttribute("aria-pressed",S.rungs[key]?"true":"false"); save(); };
+    rung.appendChild(knob);
+    const sub=c[k+"Code"];
+    rung.appendChild(el("h4",null,esc(label)+(sub?' <span style="color:var(--quiet);font-weight:400">'+esc(sub)+"</span>":"")));
+    rung.appendChild(el("div","body",esc(c[k])));
+    col.appendChild(rung);
+  });
+  grid.appendChild(rail); grid.appendChild(col);
+  card.appendChild(grid);
+
+  const v=el("div","meta-row");
+  v.appendChild(el("div","lbl","Vocabulary"));
+  const chips=el("div","vocab-chips");
+  c.vocab.forEach(w=>chips.appendChild(el("span","chip",esc(w))));
+  v.appendChild(chips);
+  card.appendChild(v);
+
+  const w=el("div","meta-row warn");
+  w.appendChild(el("div","lbl","Watch the wording"));
+  w.appendChild(el("div",null,esc(c.wording)));
+  card.appendChild(w);
+
+  const n=el("div","meta-row next");
+  n.appendChild(el("div","lbl","Next step at IGCSE"));
+  n.appendChild(el("div","body",esc(c.igcse)));
+  card.appendChild(n);
+
+  return card;
+}
+
+function latestCheckin(){ return S.checkins.length ? S.checkins[S.checkins.length-1] : null; }
+function ragWidget(code){
+  const wrap=el("div","rag");
+  wrap.appendChild(el("span","lbl","Rate it"));
+  ["R","A","G"].forEach(v=>{
+    const b=el("button",null,v); b.type="button"; b.dataset.v=v;
+    const ci=latestCheckin();
+    b.setAttribute("aria-pressed", ci && ci.ratings[code]===v ? "true":"false");
+    b.setAttribute("aria-label",code+" rated "+v);
+    b.onclick=()=>{
+      let c=latestCheckin();
+      if(!c){ c={date:today(),ratings:{}}; S.checkins.push(c); }
+      c.ratings[code]= c.ratings[code]===v ? null : v;
+      save();
+      wrap.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed", c.ratings[code]===x.dataset.v ? "true":"false"));
+    };
+    wrap.appendChild(b);
+  });
+  return wrap;
+}
+
+/* ==========================================================
+   VOCABULARY
+   ========================================================== */
+function renderVocab(){
+  const p=$("#p-vocab"); p.innerHTML="";
+  p.appendChild(el("div","intro","Every word here appears in the lessons, the quizzes and the assessment. The misconceptions below are where most marks are lost — read them more than once. CORMS and SLAPUK are at the bottom: learn both by heart."));
+
+  const inp=el("input","search"); inp.type="search"; inp.placeholder="Search a word or a definition…";
+  inp.setAttribute("aria-label","Search the vocabulary");
+  p.appendChild(inp);
+
+  const card=el("div","card");
+  const dl=el("dl","glossary"); dl.style.padding="6px 18px";
+  card.appendChild(dl); p.appendChild(card);
+
+  function draw(filter){
+    dl.innerHTML="";
+    const f=(filter||"").toLowerCase().trim();
+    let n=0;
+    GLOSSARY.forEach(([t,d])=>{
+      if(f && (t+" "+d).toLowerCase().indexOf(f)===-1) return;
+      n++;
+      const box=el("div","term");
+      box.appendChild(el("dt",null,esc(t)));
+      box.appendChild(el("dd",null,esc(d)));
+      dl.appendChild(box);
+    });
+    if(!n) dl.appendChild(el("div","empty","No word matches that. Try part of the word, or clear the search."));
+  }
+  draw("");
+  inp.oninput=()=>draw(inp.value);
+
+  const m=el("div","card");
+  m.appendChild(el("div","card-head",'<div class="code">Words that do not mean what you think<small>Each one has an everyday meaning that fights the scientific one</small></div>'));
+  const g=el("div","misc");
+  MISCONCEPTIONS.forEach(([x,t])=>{
+    g.appendChild(el("div","x","✗&nbsp; "+esc(x)));
+    g.appendChild(el("div","t","✓&nbsp; "+esc(t)));
+  });
+  m.appendChild(g); p.appendChild(m);
+
+  const s=el("div","card");
+  s.appendChild(el("div","card-head",'<div class="code">How to start a good answer</div>'));
+  const sl=el("div","meta-row");
+  STEMS.forEach(x=> sl.appendChild(el("div","body",'<span style="font-family:Georgia,serif">'+esc(x)+"</span>")));
+  s.appendChild(sl); p.appendChild(s);
+
+  FRAMEWORKS.forEach(fw=>{
+    const st=el("div","card");
+    st.appendChild(el("div","card-head",'<div class="code">'+esc(fw.name)+"<small>"+esc(fw.sub)+" — learn it by heart</small></div>"));
+    const sc2=el("div","scroller"); sc2.style.padding="0 18px 16px";
+    let h="<table><tbody>";
+    fw.rows.forEach(function(r){ h+='<tr><td style="width:46px;text-align:center;font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:var(--purple)">'+esc(r[0])+"</td><td>"+esc(r[1])+"</td></tr>"; });
+    h+="</tbody></table>"; sc2.innerHTML=h; st.appendChild(sc2); p.appendChild(st);
+  });
+}
+
+/* ==========================================================
+   QUIZZES
+   ========================================================== */
+let quizWeek=1;
+function renderQuiz(){
+  const p=$("#p-quiz"); p.innerHTML="";
+  p.appendChild(el("div","intro","Five quizzes of ten, one point each. You get the answer straight away — read the feedback even when you are right, because it tells you which question on the paper this one is rehearsing."));
+
+  const bar=el("div","weekbar");
+  QUIZZES.forEach(q=>{
+    const b=el("button",null,q.label);
+    b.setAttribute("aria-pressed", quizWeek===q.week?"true":"false");
+    b.onclick=()=>{quizWeek=q.week;renderQuiz();};
+    bar.appendChild(b);
+  });
+  p.appendChild(bar);
+
+  const Q=QUIZZES.find(x=>x.week===quizWeek);
+  const card=el("div","card");
+  card.appendChild(el("div","card-head",'<div class="code">'+esc(Q.label)+" — "+esc(Q.title)+"<small>"+esc(Q.note)+"</small></div>"));
+
+  Q.qs.forEach((q,i)=>{
+    const key="w"+Q.week+"q"+i;
+    const box=el("div","q");
+    box.appendChild(el("div","stem","<b>"+(i+1)+"</b>"+esc(q.q)));
+    const fb=el("div","fb"); fb.hidden=true;
+    const btns=[];
+    q.o.forEach((o,j)=>{
+      const b=el("button","opt",String.fromCharCode(97+j)+")&nbsp; "+esc(o));
+      b.type="button";
+      b.onclick=()=>answer(j);
+      btns.push(b); box.appendChild(b);
+    });
+    box.appendChild(fb);
+
+    function paint(chosen){
+      btns.forEach((b,j)=>{
+        b.disabled=true;
+        if(j===q.a) b.classList.add("correct");
+        else if(j===chosen) b.classList.add("wrong");
+      });
+      const right = chosen===q.a;
+      const cObj = criterionByCode(q.c);
+      const crit = q.c==="Y8" ? "Year 8 retrieval ("+q.sub+")" : (q.sub||q.c)+" "+(cObj?cObj.title:"");
+      fb.hidden=false;
+      fb.innerHTML = (right ? "<b>Correct.</b> " : "<b>Not this time.</b> The answer is "+String.fromCharCode(97+q.a)+". ")
+        + esc(crit) + (q.p!=="—" ? " · rehearsing paper question "+esc(q.p) : "");
+    }
+    function answer(j){ S.quiz[key]=j; save(); paint(j); tally(); }
+    if(S.quiz[key]!=null) paint(S.quiz[key]);
+    card.appendChild(box);
+  });
+
+  const sc=el("div","score"); sc.id="quiz-score"; card.appendChild(sc);
+  const row=el("div","btnrow"); row.style.padding="0 18px 16px";
+  const reset=el("button","btn ghost","Clear this quiz’s answers");
+  reset.onclick=()=>{ Q.qs.forEach((q,i)=>delete S.quiz["w"+Q.week+"q"+i]); save(); renderQuiz(); };
+  row.appendChild(reset); card.appendChild(row);
+  p.appendChild(card);
+
+  function tally(){
+    let done=0,right=0;
+    Q.qs.forEach((q,i)=>{const v=S.quiz["w"+Q.week+"q"+i]; if(v!=null){done++; if(v===q.a) right++;}});
+    sc.innerHTML = done? ("<b>"+right+" out of "+done+"</b> answered so far, "+Q.qs.length+" in the quiz.") : "No answers yet. Work through all ten, then look at which criteria your wrong answers came from.";
+  }
+  tally();
+}
+
+/* ==========================================================
+   EXAM PRACTICE
+   ========================================================== */
+function renderExam(){
+  const p=$("#p-exam"); p.innerHTML="";
+  p.appendChild(el("div","intro","A practice paper built to match Assessment 1 question for question — <strong>52 marks in 60 minutes</strong>, the same criteria, the same marks and the same AO split, but different enzymes, different data and a different field. These are not the questions you will sit. Write your answer, press Check, and you will be told which mark points the examiner is looking for and which ones you have hit. Then read the model answer and give yourself the mark you honestly think you earned."));
+
+  const cw=el("div","card");
+  cw.appendChild(el("div","card-head",'<div class="code">Do exactly what the command word asks<small>Read the word at the start of every question before you write</small></div>'));
+  const sc=el("div","scroller");
+  let html="<table><thead><tr><th>Word</th><th>What you must actually do</th></tr></thead><tbody>";
+  COMMAND_WORDS.forEach(([w,d])=> html+="<tr><td><b>"+esc(w)+"</b></td><td>"+esc(d)+"</td></tr>");
+  html+="</tbody></table>";
+  sc.innerHTML=html; cw.appendChild(sc); p.appendChild(cw);
+
+  EXAM.forEach(Q=>{
+    const card=el("div","card");
+    let marks=0; Q.parts.forEach(pt=>marks+=pt.marks);
+    card.appendChild(el("div","card-head",'<div class="code">Question '+Q.n+'<small>Total '+marks+' mark'+(marks>1?"s":"")+'</small></div>'));
+    if(Q.intro){ const i=el("div","meta-row"); i.appendChild(el("div","body",'<span style="font-family:Georgia,serif">'+esc(Q.intro)+"</span>")); card.appendChild(i); }
+    if(Q.table) card.appendChild(tableBlock(Q.table));
+    Q.parts.forEach(pt=> card.appendChild(examPart(pt)));
+    p.appendChild(card);
+  });
+
+  const row=el("div","btnrow");
+  const clr=el("button","btn ghost","Clear all my exam answers");
+  clr.onclick=()=>{ if(confirm("Delete every answer and mark you have entered on this paper?")){ S.exam={}; save(); renderExam(); } };
+  row.appendChild(clr); p.appendChild(row);
+}
+
+function tableBlock(t){
+  const w=el("div","scroller"); w.style.padding="0 18px 14px";
+  let h="<table><thead><tr>"+t.head.map(x=>"<th>"+esc(x)+"</th>").join("")+"</tr></thead><tbody>";
+  t.rows.forEach(r=> h+="<tr>"+r.map((c,i)=> i===0?"<td><b>"+esc(c)+"</b></td>":"<td>"+esc(c)+"</td>").join("")+"</tr>");
+  h+="</tbody></table>"; w.innerHTML=h; return w;
+}
+
+function examPart(pt){
+  const box=el("div","q");
+  const st=el("div","qtext");
+  st.innerHTML='<span class="marks">('+pt.marks+")</span><b>"+esc(pt.id)+"</b>&nbsp; "+pt.stem
+    + (pt.hint? '<span class="hint">'+esc(pt.hint)+"</span>":"");
+  box.appendChild(st);
+  if(pt.table) box.appendChild(tableBlock(pt.table));
+
+  const store = S.exam[pt.id] = S.exam[pt.id] || {ans:null,fields:[],mark:null};
+  if(!Array.isArray(store.fields)) store.fields=[];
+  if(typeof store.ans!=="string") store.ans = store.ans||null;
+  const inputs=[];
+
+  if(pt.fields){
+    pt.fields.forEach((f,i)=>{
+      const row=el("div","fieldrow");
+      const id="f-"+pt.id+"-"+i;
+      const lab=el("label",null,esc(f.label)); lab.htmlFor=id;
+      const inp=el("input"); inp.type="text"; inp.id=id; inp.value=store.fields[i]||"";
+      inp.oninput=()=>{ store.fields[i]=inp.value; save(); };
+      row.appendChild(lab); row.appendChild(inp); box.appendChild(row); inputs.push(inp);
+    });
+  } else {
+    const ta=el("textarea");
+    ta.rows = pt.marks>=6?9 : pt.marks>=3?5 : pt.marks===2?3:2;
+    ta.value = store.ans||"";
+    ta.setAttribute("aria-label","Your answer to question "+pt.id);
+    ta.oninput=()=>{ store.ans=ta.value; save(); };
+    box.appendChild(ta); inputs.push(ta);
+  }
+
+  const out=el("div"); box.appendChild(out);
+  const row=el("div","btnrow");
+  const check=el("button","btn","Check my answer");
+  const showModel=el("button","btn ghost","Show the model answer");
+  row.appendChild(check); row.appendChild(showModel); box.appendChild(row);
+
+  check.onclick=()=>{ out.innerHTML=""; out.appendChild(buildResult(pt,store)); };
+  showModel.onclick=()=>{ out.innerHTML=""; out.appendChild(modelBlock(pt)); out.appendChild(selfMark(pt,store)); };
+
+  return box;
+}
+
+function buildResult(pt,store){
+  const wrap=el("div","result");
+  let hits=0,total=0;
+  const list=el("div");
+
+  if(pt.fields){
+    pt.fields.forEach((f,i)=>{
+      const norm=normalise(store.fields[i]);
+      const ok = (store.fields[i]||"").trim()!=="" && f.need.every(g=>hasAny(norm,g));
+      total++; if(ok) hits++;
+      list.appendChild(mpRow(ok, f.label+" — "+f.model));
+    });
+  } else {
+    const norm=normalise(store.ans);
+    const blank=(store.ans||"").trim()==="";
+    (pt.mps||[]).forEach(mp=>{
+      let ok = !blank && scoreMP(norm,mp);
+      if(!ok && pt.exactOk){ const t=normalise(store.ans).trim(); if(pt.exactOk.indexOf(t)!==-1) ok=true; }
+      total++; if(ok) hits++;
+      list.appendChild(mpRow(ok,mp.t));
+    });
+  }
+
+  const cap = pt.cap || pt.marksOverride || pt.marks;
+  const suggested = pt.marksOverride ? (hits===total?1:0) : Math.min(hits,cap);
+
+  wrap.appendChild(el("h5",null,"What the mark scheme is looking for"));
+  wrap.appendChild(list);
+  const note = pt.cap && total>pt.cap
+    ? "You have hit "+hits+" of the "+total+" possible points. The question is worth "+pt.cap+", so any "+pt.cap+" of them is full marks."
+    : "You have hit "+hits+" of "+total+".";
+  wrap.appendChild(el("p",null,"<b>"+esc(note)+"</b> This checker looks for the words the mark scheme needs, so it can miss a right answer written another way — the model answer below is the thing to judge yourself against."));
+  wrap.appendChild(modelBlock(pt));
+  wrap.appendChild(selfMark(pt,store,suggested));
+  return wrap;
+}
+
+function mpRow(ok,text){
+  const r=el("div","mp "+(ok?"hit":"miss"));
+  r.appendChild(el("span","tick",ok?"✓":"·"));
+  r.appendChild(el("span",null,esc(text)));
+  return r;
+}
+
+function modelBlock(pt){
+  const m=el("div","model");
+  if(pt.fields && !pt.model){
+    m.innerHTML = pt.fields.map(f=>"<b>"+esc(f.label)+":</b> "+esc(f.model)).join("<br>");
+  } else {
+    m.innerHTML = "<b>Model answer.</b> "+esc(pt.model||"");
+  }
+  return m;
+}
+
+function selfMark(pt,store,suggested){
+  const max = pt.marksOverride || pt.marks;
+  const w=el("div","selfmark");
+  w.appendChild(el("span",null,"Now mark yourself honestly, out of <b>"+max+"</b>:"));
+  const inp=el("input"); inp.type="text"; inp.inputMode="numeric";
+  inp.setAttribute("aria-label","Your mark for question "+pt.id+" out of "+max);
+  inp.value = store.mark!=null ? store.mark : (suggested!=null?suggested:"");
+  if(store.mark==null && suggested!=null){ store.mark=suggested; save(); }
+  inp.oninput=()=>{
+    let v=parseInt(inp.value,10);
+    if(isNaN(v)){ store.mark=null; } else { v=Math.max(0,Math.min(max,v)); store.mark=v; }
+    save();
+  };
+  w.appendChild(inp);
+  w.appendChild(el("span",null,"<span style='color:var(--quiet)'>goes into My progress</span>"));
+  return w;
+}
+
+/* ==========================================================
+   PROGRESS
+   ========================================================== */
+function allParts(){ const out=[]; EXAM.forEach(Q=>Q.parts.forEach(p=>out.push(p))); return out; }
+
+function renderProgress(){
+  const p=$("#p-progress"); p.innerHTML="";
+  p.appendChild(el("div","intro","Twelve codes, and every line of the mark scheme is a sentence from a card already in your book. There is nothing new on the paper. Rate yourself every week and revise the reds first."));
+
+  /* --- headline --- */
+  const parts=allParts();
+  let scored=0,marked=0;
+  const ao={AO1:0,AO2:0,AO3:0};
+  parts.forEach(pt=>{
+    const s=S.exam[pt.id];
+    const max=pt.marksOverride||pt.marks;
+    if(s && s.mark!=null){
+      scored+=s.mark; marked+=max;
+      if(pt.aoSplit){ const half=Math.floor(s.mark/2); ao.AO2+=half; ao.AO3+=s.mark-half; }
+      else ao[pt.ao]+=s.mark;
+    }
+  });
+  let qDone=0,qRight=0;
+  QUIZZES.forEach(Q=>Q.qs.forEach((q,i)=>{const v=S.quiz["w"+Q.week+"q"+i]; if(v!=null){qDone++; if(v===q.a)qRight++;}}));
+  const rungsDone=Object.values(S.rungs).filter(Boolean).length;
+
+  const h=el("div","card");
+  const stats=el("div","bigstat");
+  stats.appendChild(el("div","stat",'<div class="n">'+rungsDone+"/"+RUNG_TOTAL+"</div><div class=\"l\">Knowledge organiser rungs ticked</div>"));
+  stats.appendChild(el("div","stat",'<div class="n">'+qRight+"/"+qDone+'</div><div class="l">Quiz questions right (of '+qDone+" answered)</div>"));
+  stats.appendChild(el("div","stat",'<div class="n">'+scored+"/"+(marked||PAPER_TOTAL)+'</div><div class="l">Exam marks you have given yourself</div>'));
+  if(marked) stats.appendChild(el("div","stat",'<div class="n">'+Math.round(scored/marked*100)+'%</div><div class="l">on the '+marked+" marks you have done</div>"));
+  h.appendChild(stats);
+  if(marked){
+    const aoRow=el("div","meta-row");
+    aoRow.appendChild(el("div","lbl","Assessment objectives so far"));
+    aoRow.appendChild(el("div",null,"AO1 recall <b>"+ao.AO1+"</b> · AO2 apply <b>"+ao.AO2+"</b> · AO3 analyse and evaluate <b>"+ao.AO3+"</b> &nbsp;<span style='color:var(--quiet)'>(the real paper is AO1 20, AO2 21, AO3 11)</span>"));
+    h.appendChild(aoRow);
+  }
+  p.appendChild(h);
+
+  /* --- weekly RAG grid --- */
+  const g=el("div","card");
+  g.appendChild(el("div","card-head",'<div class="code">Weekly self-check<small>Rate every criterion, every week. Watch yourself move.</small></div>'));
+  const gs=el("div","scroller"); gs.style.padding="0 18px";
+  const tb=el("table");
+  let head="<thead><tr><th>Code</th><th>What it covers</th>";
+  S.checkins.forEach(c=> head+="<th>"+esc(c.date)+"</th>");
+  head+="</tr></thead><tbody>";
+  const order=CODES;
+  order.forEach(code=>{
+    const c=criterionByCode(code);
+    head+="<tr><td><b>"+esc(code)+"</b></td><td>"+esc(c.title)+"</td>";
+    S.checkins.forEach((ci,idx)=>{
+      const v=ci.ratings[code]||"";
+      const col = v==="G"?"var(--green-soft)": v==="A"?"var(--amber-soft)": v==="R"?"var(--pink-soft)":"transparent";
+      head+='<td style="background:'+col+';text-align:center;font-weight:700" data-code="'+code+'" data-ci="'+idx+'">'+esc(v||"–")+"</td>";
+    });
+    head+="</tr>";
+  });
+  head+="</tbody>";
+  tb.innerHTML=head;
+  gs.appendChild(tb); g.appendChild(gs);
+
+  const grow=el("div","btnrow"); grow.style.padding="12px 18px 16px";
+  const nb=el("button","btn","Start a new weekly check-in");
+  nb.onclick=()=>{ S.checkins.push({date:today(),ratings:{}}); save(); renderProgress(); renderKO(); };
+  grow.appendChild(nb);
+  if(S.checkins.length){
+    const note=el("span",null,"<span style='color:var(--quiet);font-size:.85rem'>Rate each criterion on the Knowledge organiser tab — it fills the newest column.</span>");
+    grow.appendChild(note);
+  }
+  g.appendChild(grow);
+  if(!S.checkins.length) g.appendChild(el("div","empty","No check-ins yet. Start one, then rate all seven criteria on the Knowledge organiser tab."));
+  p.appendChild(g);
+
+  /* --- per criterion --- */
+  const perc={};
+  QUIZZES.forEach(Q=>Q.qs.forEach((q,i)=>{
+    const v=S.quiz["w"+Q.week+"q"+i]; if(v==null) return;
+    perc[q.c]=perc[q.c]||{d:0,r:0}; perc[q.c].d++; if(v===q.a) perc[q.c].r++;
+  }));
+  const exc={};
+  parts.forEach(pt=>{
+    const s=S.exam[pt.id]; const max=pt.marksOverride||pt.marks;
+    if(s && s.mark!=null){ exc[pt.c]=exc[pt.c]||{g:0,m:0}; exc[pt.c].g+=s.mark; exc[pt.c].m+=max; }
+  });
+
+  const cc=el("div","card");
+  cc.appendChild(el("div","card-head",'<div class="code">Criterion by criterion<small>Where the evidence says you are, not where you feel you are</small></div>'));
+  const ccs=el("div","scroller"); ccs.style.padding="0 18px 16px";
+  let ch="<table><thead><tr><th>Code</th><th>Criterion</th><th>Rungs</th><th>Quiz</th><th>Exam marks</th><th>Latest RAG</th></tr></thead><tbody>";
+  order.forEach(code=>{
+    const c=criterionByCode(code);
+    const avail=["state","describe","explain","evaluate"].filter(k=>c[k]);
+    const r=avail.filter(k=>S.rungs[code+":"+k]).length;
+    const q=perc[code]; const e=exc[code];
+    const ci=latestCheckin(); const rag=ci&&ci.ratings[code]?ci.ratings[code]:"–";
+    ch+="<tr><td><b>"+esc(code)+"</b></td><td>"+esc(c.title)+"</td>"
+      +'<td><div class="bar"><i style="width:'+(avail.length?r/avail.length*100:0)+'%"></i></div>'+r+"/"+avail.length+"</td>"
+      +"<td>"+(q? q.r+"/"+q.d : "–")+"</td>"
+      +"<td>"+(e? e.g+"/"+e.m : "–")+"</td>"
+      +"<td style='text-align:center;font-weight:700'>"+esc(rag)+"</td></tr>";
+  });
+  ch+="</tbody></table>"; ccs.innerHTML=ch; cc.appendChild(ccs); p.appendChild(cc);
+
+  /* --- revision list --- */
+  const todo=[];
+  order.forEach(code=>{
+    const c=criterionByCode(code);
+    const ci=latestCheckin();
+    const rag=ci?ci.ratings[code]:null;
+    const q=perc[code]; const e=exc[code];
+    const reasons=[];
+    if(rag==="R") reasons.push("you rated it red");
+    if(rag==="A") reasons.push("you rated it amber");
+    if(q && q.d>=2 && q.r/q.d<0.6) reasons.push("you got "+q.r+" of "+q.d+" quiz questions right");
+    if(e && e.m>=2 && e.g/e.m<0.6) reasons.push("you scored "+e.g+" of "+e.m+" on the paper");
+    const av=["state","describe","explain","evaluate"].filter(k=>c[k]);
+    const r2=av.filter(k=>S.rungs[code+":"+k]).length;
+    if(r2<=1 && (q||e||rag)) reasons.push("only "+r2+" of the "+av.length+" rungs ticked");
+    if(reasons.length) todo.push([code,c.title,reasons]);
+  });
+
+  const t=el("div","card");
+  t.appendChild(el("div","card-head",'<div class="code">Revise these next<small>Built from what you have actually done, not guessed</small></div>'));
+  if(todo.length){
+    const ul=el("ul","todo");
+    todo.forEach(([code,title,reasons])=>{
+      const li=el("li",null,"<b>"+esc(code)+" "+esc(title)+"</b> — "+esc(reasons.join(", "))+". Go back to the criterion card, read State it and Describe it, cover them, write them from memory, then check.");
+      ul.appendChild(li);
+    });
+    t.appendChild(ul);
+  } else {
+    t.appendChild(el("div","empty","Nothing flagged yet. Work through a quiz and a few exam questions and this list will fill itself in."));
+  }
+  p.appendChild(t);
+
+  const row=el("div","btnrow");
+  const pr=el("button","btn ghost","Print this page");
+  pr.onclick=()=>window.print();
+  const rs=el("button","btn ghost","Clear everything and start again");
+  rs.onclick=()=>{ if(confirm("This deletes every tick, rating, quiz answer and exam answer you have saved. Are you sure?")){ S={rungs:{},checkins:[],quiz:{},exam:{}}; try{localStorage.removeItem(KEY);}catch(e){} renderKO(); renderQuiz(); renderExam(); renderProgress(); } };
+  row.appendChild(pr); row.appendChild(rs); p.appendChild(row);
+}
+
+/* ==========================================================
+   GO
+   ========================================================== */
+buildTabs();
+renderKO();
+renderVocab();
+renderQuiz();
+renderExam();
+</script>
+</body>
+</html>
